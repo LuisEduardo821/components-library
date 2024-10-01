@@ -13,6 +13,7 @@ const links = [
     { name: "badge", href: "badge" },
     { name: "calendar", href: "calendar" },
     { name: "avatar", href: "avatar" },
+    { name: "card", href: "card" },
 ];
 
 export default function DashboardLayout({
