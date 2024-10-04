@@ -14,6 +14,7 @@ const links = [
     { name: "calendar", href: "calendar" },
     { name: "avatar", href: "avatar" },
     { name: "card", href: "card" },
+    { name: "carousel", href: "carousel" },
 ];
 
 export default function DashboardLayout({
