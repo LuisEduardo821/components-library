@@ -1,10 +1,14 @@
+'use client';
 import { Card, CardContent } from "@/components/ui/card";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
+
 
 export default function CarouselPage() {
     return (
         <div className="w-full flex justify-center">
             <Carousel className="w-full max-w-xs"
+                // plugins={[Autoplay({ delay: 2000, })]}
+                autoplay={2000}
                 opts={{
                     // dragFree: true,
                     loop: true,
@@ -26,6 +30,6 @@ export default function CarouselPage() {
                 <CarouselPrevious className="hidden sm:flex justify-center items-center" />
                 <CarouselNext className="hidden sm:flex justify-center items-center" />
             </Carousel>
-        </div>
+        </div >
     )
 }
