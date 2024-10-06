@@ -16,6 +16,7 @@ const links = [
     { name: "card", href: "card" },
     { name: "carousel", href: "carousel" },
     { name: "checkbox", href: "checkbox" },
+    { name: "command", href: "command" },
 ];
 
 export default function DashboardLayout({
