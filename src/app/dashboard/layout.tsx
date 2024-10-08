@@ -20,6 +20,7 @@ const links = [
   { name: "combobox", href: "combobox" },
   { name: "context menu", href: "context-menu" },
   { name: "menubar", href: "menubar" },
+  { name: "input OTP", href: "input-otp" },
 ];
 
 export default function DashboardLayout({
