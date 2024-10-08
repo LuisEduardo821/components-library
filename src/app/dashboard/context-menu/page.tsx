@@ -3,6 +3,7 @@ import {
   ContextMenuContent,
   ContextMenuItem,
   ContextMenuSeparator,
+  ContextMenuShortcut,
   ContextMenuSub,
   ContextMenuSubContent,
   ContextMenuSubTrigger,
@@ -16,8 +17,11 @@ export default function ContextMenuPage() {
         <ContextMenuTrigger className="flex h-[150px] w-full rounded-md justify-center items-center">
           Right click
         </ContextMenuTrigger>
-        <ContextMenuContent>
-          <ContextMenuItem>Back</ContextMenuItem>
+        <ContextMenuContent className="w-64">
+          <ContextMenuItem>
+            Back
+            <ContextMenuShortcut>⌘R</ContextMenuShortcut>
+          </ContextMenuItem>
           <ContextMenuSeparator />
           <ContextMenuItem>Profile</ContextMenuItem>
           <ContextMenuItem>Billing</ContextMenuItem>

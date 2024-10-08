@@ -19,6 +19,7 @@ const links = [
   { name: "command", href: "command" },
   { name: "combobox", href: "combobox" },
   { name: "context menu", href: "context-menu" },
+  { name: "menubar", href: "menubar" },
 ];
 
 export default function DashboardLayout({
