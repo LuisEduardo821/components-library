@@ -27,6 +27,7 @@ const links = [
   { name: "slider", href: "slider" },
   { name: "sonner", href: "sonner" },
   { name: "toaster", href: "toaster" },
+  { name: "tabs", href: "tabs" },
 ];
 
 export default function DashboardLayout({
