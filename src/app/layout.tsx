@@ -28,7 +28,7 @@ export default function RootLayout({
         )}
       >
         {children}
-        <Sonner closeButton theme="light" />
+        <Sonner theme="light" />
         <Toaster />
       </body>
     </html>
