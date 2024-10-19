@@ -1,10 +1,9 @@
 "use client";
 import { Badge } from "@/components/ui/badge";
 import { Payment } from "@/data/payments.data";
-import { ColumnDef } from "@tanstack/react-table";
+import { ColumnDef, SortDirection } from "@tanstack/react-table";
 import {
   DropdownMenu,
-  DropdownMenuCheckboxItem,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuLabel,
@@ -12,17 +11,52 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Button } from "@/components/ui/button";
-import { DotsHorizontalIcon } from "@radix-ui/react-icons";
+import {
+  ChevronDownIcon,
+  ChevronUpIcon,
+  DotsHorizontalIcon,
+} from "@radix-ui/react-icons";
 import { toast } from "sonner";
+
+const SortedIcon = ({ isSorted }: { isSorted: false | SortDirection }) => {
+  if (isSorted === "asc") {
+    return <ChevronUpIcon className="w-4 h-4" />;
+  }
+  if (isSorted === "desc") {
+    return <ChevronDownIcon className="w-4 h-4" />;
+  }
+
+  return null;
+};
 
 export const columns: ColumnDef<Payment>[] = [
   {
     accessorKey: "clientName",
-    header: "Nombre del cliente",
+    header: ({ column }) => {
+      return (
+        <Button
+          variant="ghost"
+          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+        >
+          Nombre del cliente
+          <SortedIcon isSorted={column.getIsSorted()} />
+        </Button>
+      );
+    },
   },
   {
     accessorKey: "status",
-    header: "Status",
+    header: ({ column }) => {
+      return (
+        <Button
+          variant="ghost"
+          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+        >
+          Status
+          <SortedIcon isSorted={column.getIsSorted()} />
+        </Button>
+      );
+    },
     cell: ({ row }) => {
       const status = row.getValue("status") as string;
       const variant =
@@ -43,11 +77,33 @@ export const columns: ColumnDef<Payment>[] = [
   },
   {
     accessorKey: "email",
-    header: "Email",
+    header: ({ column }) => {
+      return (
+        <Button
+          variant="ghost"
+          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+        >
+          Email
+          <SortedIcon isSorted={column.getIsSorted()} />
+        </Button>
+      );
+    },
   },
   {
     accessorKey: "amount",
-    header: () => <div className="">Amount</div>,
+    header: ({ column }) => {
+      return (
+        <div className="text-center">
+          <Button
+            variant="ghost"
+            onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+          >
+            Amount
+            <SortedIcon isSorted={column.getIsSorted()} />
+          </Button>
+        </div>
+      );
+    },
     cell: ({ row }) => {
       const amount = parseFloat(row.getValue("amount"));
       const formatted = new Intl.NumberFormat("en-US", {
@@ -55,7 +111,7 @@ export const columns: ColumnDef<Payment>[] = [
         currency: "USD",
       }).format(amount);
 
-      return <div className="font-medium">{formatted}</div>;
+      return <div className="text-center font-medium">{formatted}</div>;
     },
   },
   {
